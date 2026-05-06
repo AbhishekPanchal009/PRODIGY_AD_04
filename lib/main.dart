@@ -49,6 +49,31 @@ class _TicTacToeState extends State<TicTacToe>{
           Text("Turn: $currentPlayer",
           style: TextStyle(fontSize: 24),
           ),
+          SizedBox(height: 20),
+          GridView.builder(
+            shrinkWrap: true,
+            itemCount: 9,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+            ),
+            itemBuilder: (context,index){
+              return GestureDetector(
+                onTap: () =>handleTap(index),
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                  ),
+                  child: Center(
+                    child: Text(
+                      board[index],
+                      style: TextStyle(fontSize: 40),
+                    ),
+                  ),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
